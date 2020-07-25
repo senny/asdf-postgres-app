@@ -5,7 +5,7 @@ install_postgres_app() {
   local version=$2
   local install_path=$3
 
-  ln -s /Applications/Postgres.app/Contents/Versions/$version $install_path
+  ln -s /Applications/Postgres.app/Contents/Versions/$version/bin $install_path
 }
 
 install_postgres_app $ASDF_INSTALL_TYPE $ASDF_INSTALL_VERSION $ASDF_INSTALL_PATH
