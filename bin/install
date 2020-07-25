@@ -1,1 +1,5 @@
-echo "$ASDF_INSTALL_PATH"
+install_type=$1
+version=$2
+install_path=$3
+
+ln -s /Applications/Postgres.app/Contents/Versions/$version $install_path
