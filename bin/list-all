@@ -1,1 +1,1 @@
-ls /Applications/Postgres.app/Contents/Versions
+ls /Applications/Postgres.app/Contents/Versions | xargs
