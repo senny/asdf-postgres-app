@@ -5,7 +5,15 @@ install_postgres_app() {
   local version=$2
   local install_path=$3
 
-  ln -s /Applications/Postgres.app/Contents/Versions/$version/bin $install_path
+  local version_path=/Applications/Postgres.app/Contents/Versions/$version/bin
+
+  if [ -d $version_path ]; then
+    ln -s $version_path $install_path
+    echo "Installed version $version"
+  else
+    echo -e "Version $version is not supported by your installed Postgres.app distribution.\nUse 'asdf list-all postgres-app' to see all supported versions.\nIf the desired version is missing make sure to check https://postgresapp.com/downloads.html for different distributions."
+    exit 1
+  fi
 }
 
 install_postgres_app $ASDF_INSTALL_TYPE $ASDF_INSTALL_VERSION $ASDF_INSTALL_PATH
